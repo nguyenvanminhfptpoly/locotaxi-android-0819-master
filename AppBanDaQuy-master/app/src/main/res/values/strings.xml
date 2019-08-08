@@ -33,5 +33,10 @@
     <string name="hovaten">Họ và tên</string>
     <string name="sdt">Sô điện thoại</string>
     <string name="xacnhan">Xác nhận mua</string>
+    <string name="labled">Giá Sản phẩm</string>
+    <string name="edit_admin">Chỉnh sửa</string>
+    <string name="cancel">Thoát</string>
+    <string name="loaisp">Loại Sản Phâm</string>
+    <string name="delete_product" >Bạn muốn xóa sản phẩm này</string>
 
 </resources>

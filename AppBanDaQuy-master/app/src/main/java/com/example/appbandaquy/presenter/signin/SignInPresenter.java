@@ -4,6 +4,7 @@ import android.content.Context;
 import android.databinding.ObservableField;
 
 import com.example.appbandaquy.databinding.ActivityMainBinding;
+import com.example.appbandaquy.presenter.signin.SignInPresenterInterface;
 import com.example.appbandaquy.view.signin.SignInView;
 
 public class SignInPresenter implements SignInPresenterInterface {

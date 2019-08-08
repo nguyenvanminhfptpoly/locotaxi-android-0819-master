@@ -50,6 +50,14 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.Viewhode
                 onItemListener.OnItemListener(i);
             }
         });
+
+        viewhodel.contr_sp.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                onItemListener.OnLongClickItem(i);
+                return false;
+            }
+        });
     }
 
     @Override
@@ -73,4 +81,5 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.Viewhode
 
 
     }
+
 }

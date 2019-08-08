@@ -53,4 +53,26 @@ public interface DataClient {
     @FormUrlEncoded
     @POST("donhangchitiet.php")
     Call<String> donhangchitiet(@FieldMap Map<String,String> data);
+
+    @FormUrlEncoded
+    @POST("admin_addproduct.php")
+    Call<String> insertProduct(@Field("tensp") String tensp,
+                               @Field("giasp") String giasp,
+                               @Field("hinhanhsp") String hinhanhsp,
+                               @Field("motasp") String motasp,
+                               @Field("idsanpham") String idsanpham
+                               );
+    @FormUrlEncoded
+    @POST("admin_editproduct.php")
+    Call<String> EditProduct(@Field("id") int id,
+                             @Field("tensp") String tensp,
+                             @Field("giasp") String giasp,
+                             @Field("hinhanhsp") String hinhanhsp,
+                             @Field("motasp") String motasp,
+                             @Field("idsanpham") String idsanpham
+    );
+
+    @FormUrlEncoded
+    @POST("admin_deleteproduct.php")
+    Call<String> DeleteProduct(@FieldMap Map<String,String> data);
 }

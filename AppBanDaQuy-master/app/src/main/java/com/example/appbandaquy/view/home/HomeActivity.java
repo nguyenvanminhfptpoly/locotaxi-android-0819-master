@@ -92,6 +92,11 @@ public class HomeActivity extends AppCompatActivity {
                         intent.putExtra("thongtinspp", sanPhams.get(position));
                         startActivity(intent);
                     }
+
+                    @Override
+                    public void OnLongClickItem(int position) {
+
+                    }
                 });
                 mRycSp.setAdapter(adapterSanPham);
             }

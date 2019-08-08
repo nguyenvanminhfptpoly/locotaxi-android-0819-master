@@ -58,8 +58,6 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         Khaibao();
-        initPermission();
-        initPermission2();
 
     }
 
@@ -118,59 +116,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         cursor.close();
         return path;
     }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == 1) {
-            if (grantResults.length == 1 &&
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(getApplicationContext(), "Permision Write File is Granted", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(getApplicationContext(), "Permision Write File is Denied", Toast.LENGTH_SHORT).show();
 
-            }
-        } else {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
-
-    public void initPermission(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-
-                //Permisson don't granted
-                if (shouldShowRequestPermissionRationale(
-                        Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                    Toast.makeText(getApplicationContext(), "Permission isn't granted ", Toast.LENGTH_SHORT).show();
-                }
-                // Permisson don't granted and dont show dialog again.
-                else {
-                    Toast.makeText(getApplicationContext(), "Permisson don't granted and dont show dialog again ", Toast.LENGTH_SHORT).show();
-                }
-                //Register permission
-                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-
-            }
-        }
-    }
-    public void initPermission2(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-
-                //Permisson don't granted
-                if (shouldShowRequestPermissionRationale(
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    Toast.makeText(getApplicationContext(), "Permission isn't granted ", Toast.LENGTH_SHORT).show();
-                }
-                // Permisson don't granted and dont show dialog again.
-                else {
-                    Toast.makeText(getApplicationContext(), "Permisson don't granted and dont show dialog again ", Toast.LENGTH_SHORT).show();
-                }
-                //Register permission
-                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-
-            }
-        }
-    }
     @Override
     public void onSuccess() {
         Signup();
@@ -182,13 +128,13 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     }
 
     public void Signup(){
-        if(user.isEmpty() && pass.isEmpty() && confirmpass.isEmpty() && file.exists()  ) {
+        file = new File(realpath);
+        file_path = file.getAbsolutePath();
+        String[] mangtenfile = file_path.split("\\.");
+        if(user.isEmpty() && pass.isEmpty() && confirmpass.isEmpty() && file.length() == 0 ) {
             Toast.makeText(this, "Nhập đủ dữ liệu", Toast.LENGTH_SHORT).show();
-        }else {
-            file = new File(realpath);
-            file_path = file.getAbsolutePath();
-            String[] mangtenfile = file_path.split("\\.");
-            file_path = mangtenfile[0] + System.currentTimeMillis() + "." + mangtenfile[1];
+        }else if(mangtenfile.length != 0){
+            file_path = mangtenfile[0] + System.currentTimeMillis() + "." + mangtenfile[0];
             RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
 
             MultipartBody.Part body = MultipartBody.Part.createFormData("uploaded_file", file_path, requestBody);
