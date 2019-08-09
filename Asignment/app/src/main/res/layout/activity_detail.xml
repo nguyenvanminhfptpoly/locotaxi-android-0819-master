@@ -1,0 +1,64 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.DetailActivity">
+
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:menu_animationDelayPerItem="55"
+        app:menu_colorNormal="#35a2ac"
+        app:menu_fab_size="normal"
+        app:menu_labels_colorNormal="#B5000000"
+        app:menu_labels_cornerRadius="3dp"
+        app:menu_labels_textColor="@color/menu_text_color">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fbtnFavorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_favorite_small"
+            app:fab_colorNormal="#B5000000"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fbtnShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_share_small"
+            app:fab_colorNormal="#B5000000"
+            app:fab_label="Share"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fbtnSaveImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_save_image_small"
+            app:fab_colorNormal="#B5000000"
+            app:fab_label="Save Image"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fbtnSetAs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_set_as_wallpaper_small"
+            app:fab_colorNormal="#B5000000"
+            app:fab_label="Set As Wallpaper"
+            app:fab_size="mini" />
+    </com.github.clans.fab.FloatingActionMenu>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/a" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
